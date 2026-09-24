@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Kishalay Institute | Best Tuition in Jhikhira</title>
-<meta name="description" content="Kishalay Institute — Best Tuition in Jhikhira, West Bengal. Quality tuition, personal guidance, and concept-focused learning for school students. Call 085976 71454." />
-<meta property="og:title" content="Kishalay Institute | Best Tuition in Jhikhira" />
+<title>Kishalay Coaching Center | Best Tuition in Jhikhira</title>
+<meta name="description" content="Kishalay Coaching Center — Best Tuition in Jhikhira, West Bengal. Quality tuition, personal guidance, and concept-focused learning for school students. Call 085976 71454." />
+<meta property="og:title" content="Kishalay Coaching Center | Best Tuition in Jhikhira" />
 <meta property="og:description" content="Quality tuition and personal guidance for students in Jhikhira, West Bengal. Learn with confidence and build a strong academic foundation." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="" />
 <meta property="og:image" content="https://images.pexels.com/photos/18870256/pexels-photo-18870256.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="canonical" href="" />
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231b3a6b'/%3E%3Cpath d='M50 22 L82 42 L50 62 L18 42 Z' fill='%23f9a825'/%3E%3Cpath d='M30 50 V66 Q50 78 70 66 V50 L50 62 Z' fill='white'/%3E%3C/svg%3E" />
+<link rel="icon" type="image/png" href="public/images/logo.png" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
-  "name": "Kishalay Institute",
+  "name": "Kishalay Coaching Center",
   "description": "Best Tuition in Jhikhira — a local education center offering quality tuition and personal guidance for students.",
   "address": {
     "@type": "PostalAddress",
@@ -128,10 +128,8 @@
   .nav__inner{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
   .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
   .brand__mark{
-    width:44px;height:44px;border-radius:12px;flex-shrink:0;
-    background:linear-gradient(135deg,var(--navy),var(--navy-dark));
-    display:grid;place-items:center;color:var(--orange);font-weight:800;font-size:1.3rem;
-    box-shadow:var(--shadow-navy);
+    width:88px;height:88px;border-radius:12px;flex-shrink:0;
+    display:grid;place-items:center;
   }
   .brand__text{display:flex;flex-direction:column;line-height:1}
   .brand__name{font-weight:800;font-size:1.15rem;color:var(--navy);letter-spacing:.02em}
@@ -188,10 +186,10 @@
     position:relative;border-radius:var(--radius-lg);overflow:hidden;
     box-shadow:0 30px 60px rgba(0,0,0,.35);aspect-ratio:4/3;background:var(--navy-dark);
   }
-  .hero__img-wrap video{width:100%;height:100%;object-fit:cover;display:block}
+  .hero__img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
   .hero__floating{
     position:absolute;bottom:-22px;left:-22px;background:#fff;border-radius:var(--radius);
-    padding:16px 20px;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:14px;max-width:260px;
+    padding:16px 20px;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:14px;max-width:360px;
   }
   .hero__floating .ic{
     width:44px;height:44px;border-radius:12px;background:var(--orange-light);color:var(--orange-dark);
@@ -231,7 +229,7 @@
   .about__card::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(249,168,37,.2),transparent 70%)}
   .about__card .cap{width:64px;height:64px;margin:0 auto 20px;display:grid;place-items:center;background:rgba(255,255,255,.1);border-radius:16px;font-size:2rem}
   .about__card .about__video-wrap{position:relative;border-radius:var(--radius);overflow:hidden;margin-bottom:24px;aspect-ratio:16/9;box-shadow:0 8px 24px rgba(0,0,0,.25)}
-  .about__card .about__video-wrap video{width:100%;height:100%;object-fit:cover;display:block}
+  .about__card .about__video-wrap img{width:100%;height:100%;object-fit:cover;display:block}
   .about__card h3{color:#fff;font-size:1.5rem;margin-bottom:12px}
   .about__card .motto{font-size:1.1rem;color:var(--orange);font-weight:600;letter-spacing:.04em;margin-bottom:24px}
   .about__card .pillars{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;position:relative;z-index:1}
@@ -329,6 +327,23 @@
     font-weight:600;padding:10px 20px;border-radius:999px;margin-bottom:28px;font-size:.92rem;
   }
   .reviews__badge .g{width:24px;height:24px;border-radius:50%;background:#fff;border:1px solid var(--border);display:grid;place-items:center;font-size:.7rem;font-weight:800;color:#4285F4}
+
+  /* ===== TEACHERS ===== */
+  .teachers__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;justify-items:center}
+  .teacher{perspective:1000px;width:100%;max-width:220px}
+  .teacher__inner{width:100%;aspect-ratio:1/1;position:relative;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.22,.61,.36,1);border-radius:50%}
+  .teacher:hover .teacher__inner{transform:rotateY(180deg)}
+  .teacher__front,.teacher__back{position:absolute;inset:0;border-radius:50%;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;box-sizing:border-box}
+  .teacher__front{background:var(--bg-tint);overflow:hidden;z-index:2}
+  .teacher__back{background:#fff;transform:rotateY(180deg);box-shadow:var(--shadow);border:1px solid var(--border);text-align:center}
+  .teacher__img{width:100%;height:100%;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .teacher__img img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+  .teacher:hover .teacher__img img{transform:scale(1.1)}
+  .teacher__badge{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 20px;border-radius:999px;white-space:nowrap;box-shadow:var(--shadow-sm)}
+  .teacher__info{display:flex;flex-direction:column;gap:6px;width:100%}
+  .teacher__info h3{font-size:.95rem;margin:0;color:var(--ink)}
+  .teacher__subject{font-size:.70rem;color:var(--orange-dark);font-weight:600;margin:0;text-transform:uppercase;letter-spacing:.05em}
+  .teacher__bio{font-size:.78rem;color:var(--muted);line-height:1.4;margin:0}
 
   /* ===== CTA BAND ===== */
   .ctaband{
@@ -431,6 +446,7 @@
     .contact__grid{grid-template-columns:1fr}
     .footer__grid{grid-template-columns:1fr 1fr;gap:32px}
     .footer__about-col{grid-column:1/-1}
+    .teachers__grid{grid-template-columns:repeat(2,1fr);gap:20px}
   }
   @media (max-width:680px){
     .nav__links,.nav__call{display:none}
@@ -458,10 +474,242 @@
     .mobilebar{display:block}
     body{padding-bottom:68px}
     .hero__floating{left:50%;transform:translateX(-50%);bottom:-18px}
+    .teachers__grid{grid-template-columns:1fr;gap:16px}
   }
   @media (max-width:420px){
     .stats__grid{grid-template-columns:1fr}
     .hero__floating{max-width:230px;padding:12px 16px}
+  }
+
+  /* ===== GALLERY ===== */
+  .gallery__grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+    gap:24px;
+    margin-bottom:40px;
+  }
+  .gallery__item{
+    position:relative;
+    border-radius:20px;
+    overflow:hidden;
+    background:var(--bg-tint);
+    aspect-ratio:4/3;
+    box-shadow:var(--shadow-sm);
+    cursor:zoom-in;
+    transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+  }
+  .gallery__item--hero{
+    grid-column:1/-1;
+    aspect-ratio:auto;
+    height:600px;
+    border-radius:24px;
+  }
+  .gallery__item:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow-lg);
+  }
+  .gallery__item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    display:block;
+    transition:transform .5s var(--ease);
+  }
+  .gallery__item--hero img{
+    object-fit:contain;
+    background:var(--bg-tint);
+  }
+  .gallery__item:hover img{
+    transform:scale(1.06);
+  }
+  .gallery__overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg,rgba(27,58,107,.2) 0%,rgba(27,58,107,.5) 100%);
+    opacity:0;
+    display:flex;
+    align-items:flex-end;
+    padding:26px;
+    transition:opacity .3s var(--ease);
+    pointer-events:none;
+  }
+  .gallery__item:hover .gallery__overlay{opacity:1}
+  .gallery__caption{
+    color:#fff;
+    font-size:.92rem;
+    font-weight:500;
+    text-shadow:0 1px 2px rgba(0,0,0,.5);
+  }
+  .gallery__caption::before{
+    content:'\1f4f7';
+    margin-right:6px;
+    opacity:.8;
+  }
+  .gallery__cta{
+    text-align:center;
+  }
+  .gallery__cta .btn{
+    min-width:200px;
+  }
+
+  /* ===== LIGHTBOX ===== */
+  .lightbox{
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(17,37,74,.92);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .3s var(--ease),visibility .3s var(--ease);
+    padding:16px;
+  }
+  .lightbox.is-open{
+    opacity:1;
+    visibility:visible;
+  }
+  .lightbox__inner{
+    position:relative;
+    max-width:90vw;
+    max-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .lightbox__image{
+    max-width:100%;
+    max-height:90vh;
+    object-fit:contain;
+    border-radius:var(--radius-sm);
+    box-shadow:0 24px 64px rgba(0,0,0,.5);
+    opacity:0;
+    transition:opacity .4s var(--ease);
+  }
+  .lightbox__image.loaded{
+    opacity:1;
+  }
+  .lightbox__close,
+  .lightbox__prev,
+  .lightbox__next{
+    position:absolute;
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.12);
+    color:#fff;
+    display:grid;
+    place-items:center;
+    font-size:1.5rem;
+    cursor:pointer;
+    transition:background .2s var(--ease),border-color .2s var(--ease),transform .2s var(--ease);
+    z-index:10;
+  }
+  .lightbox__close{
+    top:16px;
+    right:16px;
+    font-size:1.75rem;
+    line-height:1;
+  }
+  .lightbox__prev{
+    left:16px;
+    top:50%;
+    transform:translateY(-50%);
+  }
+  .lightbox__next{
+    right:16px;
+    top:50%;
+    transform:translateY(-50%);
+  }
+  .lightbox__close:hover,
+  .lightbox__prev:hover,
+  .lightbox__next:hover{
+    background:rgba(255,255,255,.18);
+    border-color:rgba(255,255,255,.3);
+    transform:scale(1.08);
+  }
+  .lightbox__close:focus-visible,
+  .lightbox__prev:focus-visible,
+  .lightbox__next:focus-visible{
+    outline:3px solid var(--orange);
+    outline-offset:3px;
+  }
+  .lightbox__counter{
+    position:absolute;
+    bottom:16px;
+    left:50%;
+    transform:translateX(-50%);
+    color:rgba(255,255,255,.7);
+    font-size:.9rem;
+    font-weight:500;
+    background:rgba(0,0,0,.4);
+    padding:6px 16px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+
+  @media (max-width:980px){
+    .gallery__grid{
+      gap:20px;
+    }
+    .gallery__item{
+      border-radius:18px;
+    }
+  }
+  @media (max-width:768px){
+    .gallery__grid{
+      gap:18px;
+    }
+    .gallery__item--hero{
+      aspect-ratio:21/9;
+    }
+    .lightbox__close,
+    .lightbox__prev,
+    .lightbox__next{
+      width:48px;
+      height:48px;
+      font-size:1.3rem;
+    }
+    .lightbox__close{
+      top:12px;
+      right:12px;
+    }
+    .lightbox__prev{
+      left:12px;
+    }
+    .lightbox__next{
+      right:12px;
+    }
+    .lightbox__counter{
+      font-size:.8rem;
+    }
+  }
+  @media (max-width:480px){
+    .gallery__grid{
+      gap:14px;
+    }
+    .lightbox__close,
+    .lightbox__prev,
+    .lightbox__next{
+      width:44px;
+      height:44px;
+      font-size:1.2rem;
+    }
+    .lightbox__prev{
+      left:8px;
+    }
+    .lightbox__next{
+      right:8px;
+    }
+    .lightbox__close{
+      top:8px;
+      right:8px;
+    }
   }
   /* redeploy */
 </style>
@@ -471,24 +719,22 @@
 <!-- ===== NAV ===== -->
 <nav class="nav" id="nav" aria-label="Primary navigation">
   <div class="container nav__inner">
-    <a href="#home" class="brand" aria-label="Kishalay Institute home">
-      <span class="brand__mark" aria-hidden="true">K</span>
-      <span class="brand__text">
-        <span class="brand__name">KISHALAY</span>
-        <span class="brand__sub">Institute</span>
-      </span>
+    <a href="#home" class="brand" aria-label="Kishalay Coaching Center home">
+      <img src="public/images/logo.png" alt="" class="brand__mark" aria-hidden="true" width="88" height="88" />
     </a>
     <ul class="nav__links" id="navLinks">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#teachers">Our Teachers</a></li>
       <li><a href="#courses">Courses</a></li>
       <li><a href="#why">Why Us</a></li>
+      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav__right">
-      <a href="tel:08597671454" class="btn btn--primary nav__call" aria-label="Call Kishalay Institute at 085976 71454">
-        <span aria-hidden="true">&#9742;</span>
-        <span>Call Now</span>
+      <a href="https://wa.me/918597671454?text=Admission%20Query" class="btn btn--primary nav__call" aria-label="Send Admission Query on WhatsApp" target="_blank" rel="noopener noreferrer">
+        <span aria-hidden="true">&#128172;</span>
+        <span>Admission Query</span>
       </a>
       <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">&#9776;</button>
     </div>
@@ -503,28 +749,24 @@
       <h1>Build a Stronger Future with the <span class="accent">Right Guidance</span></h1>
       <p class="hero__lead">Quality tuition and personal guidance for students in Jhikhira. Learn with confidence, understand concepts clearly, and take the next step toward your academic goals.</p>
       <div class="hero__ctas">
-        <a href="tel:08597671454" class="btn btn--accent btn--lg" aria-label="Call Kishalay Institute at 085976 71454">
+        <a href="tel:08597671454" class="btn btn--accent btn--lg" aria-label="Call Kishalay Coaching Center at 085976 71454">
           <span aria-hidden="true">&#9742;</span> Call Now
         </a>
-        <a href="#contact" class="btn btn--outline-white btn--lg">Visit Our Institute</a>
+        <a href="#contact" class="btn btn--outline-white btn--lg">Visit Our Coaching Center</a>
       </div>
       <div class="hero__trust">
         <span class="dot" aria-hidden="true"></span>
-        <span>Trusted Tuition Institute in Jhikhira</span>
+        <span>Trusted Tuition Coaching Center in Jhikhira</span>
       </div>
     </div>
     <div class="hero__media">
       <div class="hero__img-wrap">
-        <video autoplay muted loop playsinline preload="metadata"
-               poster="https://images.pexels.com/photos/8617762/pexels-photo-8617762.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-               aria-label="Educational video showing classroom learning at Kishalay Institute">
-          <source src="public/videos/hero-video.mp4" type="video/mp4" />
-        </video>
+        <img src="public/images/image5.jfif" alt="Kishalay Institute classroom learning environment" loading="eager" />
       </div>
       <div class="hero__floating">
         <span class="ic" aria-hidden="true">&#128218;</span>
         <div>
-          <div class="t">Kishalay Institute</div>
+          <div class="t">Kishalay Coaching Center</div>
           <div class="s">Best Tuition in Jhikhira</div>
         </div>
       </div>
@@ -561,8 +803,8 @@
   <div class="container about__grid">
     <div class="about__text reveal">
       <div class="eyebrow-line"><span>About Us</span></div>
-      <h2 id="aboutH">About Kishalay Institute</h2>
-      <p>At Kishalay Institute, our focus is on helping students build strong academic foundations through clear explanations, consistent practice, and focused guidance. We are a local education and tuition center serving students in Jhikhira, West Bengal.</p>
+      <h2 id="aboutH">About Kishalay </h2>
+      <p>At Kishalay Coaching Center, our focus is on helping students build strong academic foundations through clear explanations, consistent practice, and focused guidance. We are a local education and tuition center serving students in Jhikhira, West Bengal.</p>
       <p>We aim to create a learning environment where students can ask questions, strengthen their concepts, and approach their studies with greater confidence — supported by personal attention and a student-friendly atmosphere.</p>
       <ul class="about__tags">
         <li>Concept Clarity</li>
@@ -573,13 +815,9 @@
     </div>
     <div class="about__card reveal reveal--delay-1">
       <div class="about__video-wrap">
-        <video autoplay muted loop playsinline preload="metadata"
-               poster="https://images.pexels.com/photos/8617888/pexels-photo-8617888.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-               aria-label="Educational video about Kishalay Institute learning environment">
-          <source src="public/videos/about-video.mp4" type="video/mp4" />
-        </video>
+        <img src="public/images/image6.jfif" alt="Kishalay Institute learning environment" loading="lazy" />
       </div>
-      <h3>KISHALAY INSTITUTE</h3>
+      <h3>OUR STUDENTS WILL</h3>
       <div class="motto">Learn &bull; Understand &bull; Grow</div>
       <div class="pillars">
         <span>Learn</span><span>Understand</span><span>Grow</span>
@@ -593,7 +831,7 @@
   <div class="container">
     <div class="section__head reveal">
       <div class="eyebrow-line"><span>Why Choose Us</span></div>
-      <h2 id="whyH">Why Students Choose Kishalay Institute</h2>
+      <h2 id="whyH">Why Students Choose Kishalay Coaching Center</h2>
       <p>A learning approach built on clarity, consistency, and personal attention.</p>
     </div>
     <div class="features__grid">
@@ -626,6 +864,100 @@
         <div class="feature__ic" aria-hidden="true">&#128205;</div>
         <h3>Local &amp; Accessible</h3>
         <p>Conveniently located in Jhikhira for students and families nearby.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OUR TEACHERS ===== -->
+<section class="section" id="teachers" aria-labelledby="teachersH">
+  <div class="container">
+    <div class="section__head reveal">
+      <div class="eyebrow-line"><span>Our Team</span></div>
+      <h2 id="teachersH">The Teachers</h2>
+      <p>Who are dedicated to student success.</p>
+    </div>
+    <div class="teachers__grid">
+      <article class="teacher reveal">
+        <div class="teacher__inner">
+          <div class="teacher__front">
+            <div class="teacher__img">
+              <img src="public/images/image6.jfif" alt="Principal" loading="lazy" />
+            </div>
+          </div>
+          <div class="teacher__back">
+            <div class="teacher__info">
+              <h3>Amrita Samanta</h3>
+              <p class="teacher__subject">English, Computer</p>
+              <p class="teacher__bio">Guiding the institute with a vision for quality education and student development.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="teacher reveal reveal--delay-1">
+        <div class="teacher__inner">
+          <div class="teacher__front">
+            <div class="teacher__img">
+              <img src="public/images/image10.jfif" alt="Teacher 1" loading="lazy" />
+            </div>
+          </div>
+          <div class="teacher__back">
+            <div class="teacher__info">
+              <h3>Supriyo Karar</h3>
+              <p class="teacher__subject">Bengali, Geography</p>
+              <p class="teacher__bio">Expert in making complex concepts simple and engaging for students.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="teacher reveal reveal--delay-2">
+        <div class="teacher__inner">
+          <div class="teacher__front">
+            <div class="teacher__img">
+              <img src="public/images/image3.jfif" alt="Teacher 2" loading="lazy" />
+            </div>
+            <div class="teacher__badge">Principal</div>
+          </div>
+          <div class="teacher__back">
+            <div class="teacher__info">
+              <h3>Sk Sakhiruddin</h3>
+              <p class="teacher__subject">Mathematics, English & Literature</p>
+              <p class="teacher__bio">Passionate about language arts and building strong communication skills.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="teacher reveal reveal--delay-3">
+        <div class="teacher__inner">
+          <div class="teacher__front">
+            <div class="teacher__img">
+              <img src="public/images/image1.jfif" alt="Teacher 3" loading="lazy" />
+            </div>
+          </div>
+          <div class="teacher__back">
+            <div class="teacher__info">
+              <h3>Arnab Manna</h3>
+              <p class="teacher__subject">Physical & Life Science</p>
+              <p class="teacher__bio">Bringing Science to life through interactive lessons.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="teacher reveal reveal--delay-3">
+        <div class="teacher__inner">
+          <div class="teacher__front">
+            <div class="teacher__img">
+              <img src="public/images/image8.jfif" alt="Teacher 4" loading="lazy" />
+            </div>
+          </div>
+          <div class="teacher__back">
+            <div class="teacher__info">
+              <h3>Poulami Mondol</h3>
+              <p class="teacher__subject">History</p>
+              <p class="teacher__bio">Preparing students for the digital future with practical tech skills.</p>
+            </div>
+          </div>
+        </div>
       </article>
     </div>
   </div>
@@ -728,7 +1060,7 @@
           <h3>For Parents</h3>
         </div>
         <ul>
-          <li>Direct contact with the institute</li>
+          <li>Direct contact with the Coaching Center</li>
           <li>Convenient local location in Jhikhira</li>
           <li>Focused academic support for your child</li>
           <li>Clear and open communication</li>
@@ -751,9 +1083,28 @@
       <div class="reviews__score">5.0</div>
       <div class="reviews__count">1 Google Review</div>
       <div class="reviews__badge"><span class="g" aria-hidden="true">G</span> Rated 5.0 on Google</div>
-      <a href="https://www.google.com/search?q=Kishalay+Institute+Jhikhira" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+      <a href="https://www.google.com/search?q=Kishalay+Coaching Center+Jhikhira" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
         <span aria-hidden="true">&#128279;</span> View on Google
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="section" id="gallery" aria-labelledby="galleryH">
+  <div class="container">
+    <div class="section__head reveal">
+      <div class="eyebrow-line"><span>Gallery</span></div>
+      <h2 id="galleryH">Our Coaching Center Gallery</h2>
+      <p>Glance through our learning spaces, classroom moments, and student activities at Kishalay Coaching Center.</p>
+    </div>
+    <div class="gallery__grid" id="galleryGrid" role="list" aria-label="Coaching Center gallery images">
+      <!-- Gallery items will be populated by JavaScript -->
+    </div>
+    <div class="gallery__cta reveal">
+      <button type="button" class="btn btn--primary" id="galleryShowMore" aria-label="Show more gallery images in lightbox">
+        <span aria-hidden="true">&#128247;</span> Show More
+      </button>
     </div>
   </div>
 </section>
@@ -762,7 +1113,7 @@
 <section class="ctaband" aria-labelledby="ctaH">
   <div class="container ctaband__inner reveal">
     <h2 id="ctaH">Ready to Take the Next Step in Your Learning?</h2>
-    <p>Get in touch with Kishalay Institute to learn about available classes, subjects, batches, and admission information.</p>
+    <p>Get in touch with Kishalay Coaching Center to learn about available classes, subjects, batches, and admission information.</p>
     <div class="ctaband__btns">
       <a href="tel:08597671454" class="btn btn--accent btn--lg" aria-label="Call 085976 71454">
         <span aria-hidden="true">&#9742;</span> Call 085976 71454
@@ -784,7 +1135,7 @@
     </div>
     <div class="contact__grid">
       <div class="contact__info reveal">
-        <h3>KISHALAY INSTITUTE</h3>
+        <h3>KISHALAY Coaching Center</h3>
         <div class="sub">Best Tuition in Jhikhira</div>
         <div class="contact__row">
           <span class="ic" aria-hidden="true">&#128205;</span>
@@ -808,8 +1159,8 @@
           </div>
         </div>
         <div class="contact__btns">
-          <a href="tel:08597671454" class="btn btn--primary btn--block" aria-label="Call the institute at 085976 71454">
-            <span aria-hidden="true">&#9742;</span> Call the Institute
+          <a href="tel:08597671454" class="btn btn--primary btn--block" aria-label="Call the Coaching Center at 085976 71454">
+            <span aria-hidden="true">&#9742;</span> Call the Coaching Center
           </a>
           <a href="https://www.google.com/maps/dir/?api=1&destination=BARBAUN+ROAD+Jhikhira+West+Bengal+711401" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--block">
             <span aria-hidden="true">&#128205;</span> Get Directions
@@ -825,9 +1176,9 @@
           <a href="https://www.google.com/maps/dir/?api=1&destination=BARBAUN+ROAD+Jhikhira+West+Bengal+711401" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Get Directions</a>
         </div>
         <iframe
-          title="Map showing Kishalay Institute location in Jhikhira"
-          src="https://www.google.com/maps?q=BARBAUN%20ROAD%2C%20Jhikhira%2C%20West%20Bengal%20711401&output=embed"
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          title="Map showing Kishalay Coaching Center location in Jhikhira"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1544.7101918598112!2d87.91564131169291!3d22.62564416059093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f87509e1ffb48f%3A0xbb56ecd6af651d11!2sKISHALAY%20Coaching Center%20%7C%20BEST%20TUITION%20IN%20JHIKIRA!5e1!3m2!1sen!2sin!4v1790230921040!5m2!1sen!2sin"
+          loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -838,11 +1189,11 @@
   <div class="container">
     <div class="footer__grid">
       <div class="footer__about-col">
-        <a href="#home" class="brand" aria-label="Kishalay Institute home">
-          <span class="brand__mark" aria-hidden="true">K</span>
+<a href="#home" class="brand" aria-label="Kishalay Coaching Center home">
+          <img src="public/images/footer-logo.png" alt="" class="" aria-hidden="true" width="32" height="32" />
           <span class="brand__text">
             <span class="brand__name">KISHALAY</span>
-            <span class="brand__sub">Institute</span>
+            <span class="brand__sub">Coaching Center</span>
           </span>
         </a>
         <p class="footer__about">Best Tuition in Jhikhira. Quality tuition and personal guidance for students, right in the heart of Jhikhira, West Bengal.</p>
@@ -852,8 +1203,10 @@
         <ul class="footer__links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="#teachers">Our Teachers</a></li>
           <li><a href="#courses">Courses</a></li>
           <li><a href="#why">Why Us</a></li>
+          <li><a href="#gallery">Gallery</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -867,7 +1220,7 @@
       </div>
     </div>
     <div class="footer__bottom">
-      &copy; 2026 <strong>Kishalay Institute</strong>. All Rights Reserved.
+      &copy; 2026 <strong>Kishalay Coaching Center</strong>. All Rights Reserved.
     </div>
   </div>
 </footer>
@@ -884,9 +1237,204 @@
   </div>
 </div>
 
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image gallery lightbox" tabindex="-1">
+  <button class="lightbox__close" id="lightboxClose" aria-label="Close lightbox">&times;</button>
+  <button class="lightbox__prev" id="lightboxPrev" aria-label="Previous image">&#8249;</button>
+  <div class="lightbox__inner">
+    <img class="lightbox__image" id="lightboxImage" src="" alt="">
+  </div>
+  <button class="lightbox__next" id="lightboxNext" aria-label="Next image">&#8250;</button>
+  <div class="lightbox__counter" id="lightboxCounter" aria-live="polite"></div>
+</div>
+
 <script>
 (function(){
   "use strict";
+
+  /* ===== Gallery Data ===== */
+  var galleryImages = [
+    {
+      src: "public/images/image0.png",
+      alt: "Kishalay Institute classroom learning environment",
+      type: "landscape"
+    },
+    {
+      src: "public/images/image1.jfif",
+      alt: "Students engaged in learning activities",
+      type: "portrait"
+    },
+    {
+      src: "public/images/image2.jfif",
+      alt: "Teacher providing personal guidance to students",
+      type: "landscape"
+    },
+    {
+      src: "public/images/image3.jfif",
+      alt: "Group study session at the institute",
+      type: "landscape"
+    },
+    {
+      src: "public/images/image4.jfif",
+      alt: "Students working on academic exercises",
+      type: "portrait"
+    },
+    {
+      src: "public/images/image5.jfif",
+      alt: "Interactive classroom discussion",
+      type: "square"
+    },
+    {
+      src: "public/images/image6.jfif",
+      alt: "Teacher explaining concepts on whiteboard",
+      type: "landscape"
+    },
+    {
+      src: "public/images/image7.jfif",
+      alt: "Students participating in class activities",
+      type: "portrait"
+    },
+    {
+      src: "public/images/image8.jfif",
+      alt: "Institute learning space and facilities",
+      type: "wide"
+    },
+    {
+      src: "public/images/image9.jfif",
+      alt: "Students receiving recognition for achievements",
+      type: "landscape"
+    },
+    {
+      src: "public/images/2025-07-01.jpg",
+      alt: "Institute event and student activities",
+      type: "wide"
+    }
+  ];
+
+  /* ===== Gallery Render ===== */
+  var galleryGrid = document.getElementById('galleryGrid');
+  var showMoreBtn = document.getElementById('galleryShowMore');
+
+  function getItemClass(type){
+    switch(type){
+      case 'portrait': return 'gallery__item gallery__item--portrait';
+      case 'square': return 'gallery__item gallery__item--square';
+      case 'wide': return 'gallery__item gallery__item--wide';
+      default: return 'gallery__item';
+    }
+  }
+
+  function renderGallery(){
+    galleryImages.forEach(function(img, index){
+      var li = document.createElement('li');
+      var classes = getItemClass(img.type);
+      if(index === 0){ classes += ' gallery__item--hero'; }
+      li.className = classes;
+      li.setAttribute('role', 'listitem');
+      li.setAttribute('data-index', index);
+      li.classList.add('reveal');
+      var delay = (index % 3) + 1;
+      li.classList.add('reveal--delay-' + delay);
+      li.innerHTML = '<img src="' + img.src + '" alt="' + img.alt + '" loading="lazy" decoding="async">' +
+        '<div class="gallery__overlay"><span class="gallery__caption">' + img.alt + '</span></div>';
+      galleryGrid.appendChild(li);
+    });
+  }
+
+  /* ===== Lightbox ===== */
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImage = document.getElementById('lightboxImage');
+  var lightboxCounter = document.getElementById('lightboxCounter');
+  var lightboxClose = document.getElementById('lightboxClose');
+  var lightboxPrev = document.getElementById('lightboxPrev');
+  var lightboxNext = document.getElementById('lightboxNext');
+  var currentIndex = 0;
+
+  function openLightbox(index){
+    currentIndex = index;
+    updateLightboxImage();
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    lightboxClose.focus();
+  }
+
+  function closeLightbox(){
+    lightbox.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  function updateLightboxImage(){
+    var img = galleryImages[currentIndex];
+    lightboxImage.src = img.src.replace('w=800', 'w=1600');
+    lightboxImage.alt = img.alt;
+    lightboxCounter.textContent = (currentIndex + 1) + ' / ' + galleryImages.length;
+    lightboxImage.classList.remove('loaded');
+    lightboxImage.onload = function(){ lightboxImage.classList.add('loaded'); };
+  }
+
+  function showPrev(){
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    updateLightboxImage();
+  }
+
+  function showNext(){
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    updateLightboxImage();
+  }
+
+  /* ===== Event Listeners ===== */
+  galleryGrid.addEventListener('click', function(e){
+    var item = e.target.closest('.gallery__item');
+    if(item){
+      var index = parseInt(item.getAttribute('data-index'), 10);
+      openLightbox(index);
+    }
+  });
+
+  showMoreBtn.addEventListener('click', function(){
+    openLightbox(0);
+  });
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxPrev.addEventListener('click', showPrev);
+  lightboxNext.addEventListener('click', showNext);
+
+  lightbox.addEventListener('click', function(e){
+    if(e.target === lightbox){
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(!lightbox.classList.contains('is-open')) return;
+    switch(e.key){
+      case 'Escape':
+        closeLightbox();
+        break;
+      case 'ArrowLeft':
+        showPrev();
+        break;
+      case 'ArrowRight':
+        showNext();
+        break;
+    }
+  });
+
+  /* ===== Touch swipe support for lightbox ===== */
+  var touchStartX = 0;
+  lightbox.addEventListener('touchstart', function(e){
+    touchStartX = e.changedTouches[0].clientX;
+  }, {passive: true});
+
+  lightbox.addEventListener('touchend', function(e){
+    if(!lightbox.classList.contains('is-open')) return;
+    var touchEndX = e.changedTouches[0].clientX;
+    var diff = touchStartX - touchEndX;
+    if(Math.abs(diff) > 50){
+      if(diff > 0) showNext();
+      else showPrev();
+    }
+  }, {passive: true});
 
   /* ===== Mobile menu toggle ===== */
   var toggle = document.getElementById('navToggle');
@@ -925,6 +1473,8 @@
     lastY = y;
   }, {passive:true});
 
+  renderGallery();
+
   /* ===== Scroll reveal ===== */
   var revealEls = document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window){
@@ -942,7 +1492,7 @@
   }
 
   /* ===== Active nav link on scroll ===== */
-  var sections = ['home','about','courses','why','contact'];
+  var sections = ['home','about','courses','why','benefits','reviews','gallery','contact'];
   var navAnchors = {};
   links.querySelectorAll('a').forEach(function(a){
     var id = a.getAttribute('href').replace('#','');
@@ -963,7 +1513,8 @@
   }
   window.addEventListener('scroll', setActive, {passive:true});
   setActive();
-})();
+
+}());
 </script>
 </body>
 </html>
