@@ -395,6 +395,24 @@
   .map-card__bar h4{font-size:1rem;color:var(--navy)}
   .map-card__bar .addr{font-size:.86rem;color:var(--muted)}
 
+  /* ===== ADDRESS TOOLTIP ===== */
+  .addr-tip{
+    position:absolute;top:100%;right:0;z-index:10;
+    margin-top:8px;padding:14px 18px;
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);
+    box-shadow:var(--shadow-lg);min-width:220px;text-align:left;
+    opacity:0;visibility:hidden;transition:opacity .2s var(--ease),visibility .2s var(--ease);
+    font-size:.85rem;
+  }
+  .addr-tip::before{
+    content:'';position:absolute;top:-6px;right:12px;
+    border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:6px solid var(--border);
+  }
+  .addr-tip.show{opacity:1;visibility:visible}
+  .addr-tip .addr-tip__title{font-weight:700;color:var(--navy);margin-bottom:4px;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}
+  .addr-tip .addr-tip__addr{color:var(--ink);line-height:1.5}
+  .addr-tip .addr-tip__copy{display:inline-block;margin-top:6px;font-size:.75rem;color:var(--muted)}
+
   /* ===== FOOTER ===== */
   .footer{background:var(--navy-dark);color:rgba(255,255,255,.8);padding:56px 0 28px}
   .footer__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px}
@@ -1280,7 +1298,7 @@
     </div>
     <div class="contact__grid">
       <div class="contact__info reveal">
-        <h3>KISHALAY Coaching Center</h3>
+        <h3>KISHALAY COACHING CENTER</h3>
         <div class="sub">Best Tuition in Jhikhira</div>
         <div class="contact__row">
           <span class="ic" aria-hidden="true">&#128205;</span>
@@ -1313,13 +1331,20 @@
         </div>
       </div>
       <div class="map-card reveal reveal--delay-1">
-        <div class="map-card__bar">
-          <div>
-            <h4>Find Us in Jhikhira</h4>
-            <div class="addr">BARBAUN ROAD, Jhikhira, West Bengal 711401</div>
-          </div>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=BARBAUN+ROAD+Jhikhira+West+Bengal+711401" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Get Directions</a>
-        </div>
+         <div class="map-card__bar">
+           <div>
+             <h4>Find Us in Jhikhira</h4>
+             <div class="addr">BARBAUN ROAD, Jhikhira, West Bengal 711401</div>
+           </div>
+           <div style="position:relative;display:inline-block">
+             <a href="#" class="btn btn--primary get-dir" aria-label="Show Kishalay Coaching Center address">Get Directions</a>
+             <div class="addr-tip" aria-hidden="true">
+               <div class="addr-tip__title">Kishalay Coaching Center</div>
+               <div class="addr-tip__addr">BARBAUN ROAD<br>Jhikhira, West Bengal 711401</div>
+               <div class="addr-tip__copy">Phone: 085976 71454</div>
+             </div>
+           </div>
+         </div>
         <iframe
           title="Map showing Kishalay Coaching Center location in Jhikhira"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1544.7101918598112!2d87.91564131169291!3d22.62564416059093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f87509e1ffb48f%3A0xbb56ecd6af651d11!2sKISHALAY%20Coaching Center%20%7C%20BEST%20TUITION%20IN%20JHIKIRA!5e1!3m2!1sen!2sin!4v1790230921040!5m2!1sen!2sin"
@@ -1658,7 +1683,27 @@
         e.preventDefault();
         toggleFlip(e);
       }
-    }, {passive: false});
+     }, {passive: false});
+   });
+
+   /* ===== Get Directions - show address ===== */
+  var getDirBtns = document.querySelectorAll('.get-dir');
+  getDirBtns.forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      var tip = btn.nextElementSibling;
+      var isOpen = tip.classList.contains('show');
+      document.querySelectorAll('.addr-tip').forEach(function(t){ t.classList.remove('show'); });
+      if(!isOpen){
+        tip.classList.add('show');
+        window.open('https://www.google.com/maps/dir/?api=1&destination=BARBAUN+ROAD+Jhikhira+West+Bengal+711401','_blank','noopener,noreferrer');
+      }
+    });
+  });
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.get-dir') && !e.target.closest('.addr-tip')){
+      document.querySelectorAll('.addr-tip').forEach(function(t){ t.classList.remove('show'); });
+    }
   });
 
 }());
