@@ -66,7 +66,7 @@
     --ease:cubic-bezier(.22,.61,.36,1);
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+  html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%;overflow-x:hidden}
   body{
     font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
     color:var(--body);
@@ -195,7 +195,7 @@
     width:44px;height:44px;border-radius:12px;background:var(--orange-light);color:var(--orange-dark);
     display:grid;place-items:center;font-size:1.4rem;flex-shrink:0;
   }
-  .hero__floating .t{font-weight:800;color:var(--navy);font-size:1.05rem;line-height:1.2}
+  .hero__floating .t{font-weight:800;color:var(--navy);font-size:1.05rem;line-height:1.2;white-space:nowrap}
   .hero__floating .s{font-size:.78rem;color:var(--muted)}
   @keyframes heroRise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
 
@@ -341,9 +341,20 @@
   .teacher:hover .teacher__img img{transform:scale(1.1)}
   .teacher__badge{position:absolute;bottom:16px;left:70%;transform:translateX(-50%);background:var(--navy);color:#fff;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 20px;border-radius:999px;white-space:nowrap;box-shadow:var(--shadow-sm)}
   .teacher__info{display:flex;flex-direction:column;gap:6px;width:100%}
-  .teacher__info h3{font-size:.95rem;margin:0;color:var(--ink)}
-  .teacher__subject{font-size:.70rem;color:var(--orange-dark);font-weight:600;margin:0;text-transform:uppercase;letter-spacing:.05em}
-  .teacher__bio{font-size:.78rem;color:var(--muted);line-height:1.4;margin:0}
+  .teacher__info h3{font-size:1.1rem;margin:0;color:var(--ink)}
+  .teacher__subject{font-size:.8rem;color:var(--orange-dark);font-weight:600;margin:0;text-transform:uppercase;letter-spacing:.05em}
+  .teacher__bio{font-size:.9rem;color:var(--muted);line-height:1.5;margin:0;display:none}
+
+  /* Touch-friendly teacher cards - tap to flip on mobile */
+  @media (hover: none) and (pointer: coarse) {
+    .teacher__inner{transition:transform .6s cubic-bezier(.22,.61,.36,1)}
+    .teacher__front{z-index:2}
+    .teacher__back{z-index:1}
+    .teacher.flipped .teacher__front{z-index:1}
+    .teacher.flipped .teacher__back{z-index:2}
+    .teacher.flipped .teacher__inner{transform:rotateY(180deg)}
+    .teacher:active .teacher__img img{transform:scale(1.02)}
+  }
 
   /* ===== CTA BAND ===== */
   .ctaband{
@@ -402,21 +413,23 @@
   }
   .footer__bottom strong{color:rgba(255,255,255,.8)}
 
-  /* ===== MOBILE BAR ===== */
-  .mobilebar{
-    position:fixed;bottom:0;left:0;right:0;z-index:800;display:none;
-    background:#fff;border-top:1px solid var(--border);box-shadow:0 -4px 16px rgba(0,0,0,.1);
-    padding:8px env(safe-area-inset-right,10px) calc(8px + env(safe-area-inset-bottom,0px)) env(safe-area-inset-left,10px);
+  /* ===== FLOATING ADMISSION BUTTON ===== */
+  .float-admission{
+    position:fixed;bottom:20px;right:20px;z-index:800;
+    display:none;
+    align-items:center;justify-content:center;
+    width:56px;height:56px;border-radius:50%;
+    background:var(--navy);color:#fff;
+    box-shadow:0 8px 24px rgba(27,58,107,.4);
+    text-decoration:none;transition:transform .2s var(--ease),box-shadow .2s var(--ease),background .2s var(--ease);
+    animation:floatPulse 2s ease-in-out infinite;
   }
-  .mobilebar__inner{display:flex;gap:10px}
-  .mobilebar a{
-    flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
-    padding:14px;border-radius:12px;font-weight:700;font-size:.95rem;text-decoration:none;
+  .float-admission:hover{
+    transform:translateY(-3px) scale(1.05);box-shadow:0 12px 32px rgba(27,58,107,.5);
   }
-  .mobilebar__call{background:var(--navy);color:#fff}
-  .mobilebar__call:hover{background:var(--navy-dark);color:#fff}
-  .mobilebar__dir{background:var(--orange);color:var(--ink)}
-  .mobilebar__dir:hover{background:var(--orange-dark);color:var(--ink)}
+  .float-admission:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+  .float-admission svg{width:24px;height:24px}
+  @keyframes floatPulse{0%,100%{box-shadow:0 8px 24px rgba(27,58,107,.4)}50%{box-shadow:0 8px 24px rgba(27,58,107,.6);transform:translateY(-2px)}}
 
   /* ===== REVEAL ===== */
   .reveal{opacity:0;transform:translateY(32px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
@@ -447,6 +460,17 @@
     .footer__grid{grid-template-columns:1fr 1fr;gap:32px}
     .footer__about-col{grid-column:1/-1}
     .teachers__grid{grid-template-columns:repeat(2,1fr);gap:20px}
+    .teacher{max-width:none}
+    .teacher__inner{aspect-ratio:1/1}
+    .gallery__item--hero{height:400px}
+  }
+  @media (max-width:768px){
+    .hero__media{max-width:480px}
+    .gallery__item--hero{height:350px}
+    .approach__steps{grid-template-columns:1fr;gap:24px}
+    .stats__grid{grid-template-columns:1fr 1fr;gap:16px}
+    .features__grid{grid-template-columns:1fr}
+    .courses__grid{grid-template-columns:1fr}
   }
   @media (max-width:680px){
     .nav__links,.nav__call{display:none}
@@ -471,86 +495,164 @@
     .ctaband__btns .btn{width:100%}
     .footer__grid{grid-template-columns:1fr;gap:28px}
     .footer__about-col{grid-column:auto}
-    .mobilebar{display:block}
-    body{padding-bottom:68px}
+    .float-admission{display:inline-flex}
     .hero__floating{left:50%;transform:translateX(-50%);bottom:-18px}
     .teachers__grid{grid-template-columns:1fr;gap:16px}
+    .teacher__badge{left:50%;bottom:12px;font-size:.65rem;padding:5px 22px}
+    .contact__info{padding:28px 24px}
+    .map-card{min-height:300px}
+    .map-card iframe{min-height:300px}
+  }
+  @media (max-width:480px){
+    .hero{padding:100px 0 56px}
+    .hero__badge{font-size:.8rem;padding:6px 12px}
+    .hero__lead{font-size:1rem}
+    .hero__floating{max-width:480px;padding:14px 18px}
+    .hero__floating .t{font-size:.9rem}
+    .hero__floating .s{font-size:.68rem}
+    .hero__floating .ic{width:36px;height:36px;font-size:1.15rem}
+    .btn--lg{padding:14px 24px;font-size:1rem}
+    .stats__grid{grid-template-columns:1fr;gap:12px}
+    .stat{padding:20px 14px}
+    .stat__top{font-size:1.75rem}
+    .section__head{margin-bottom:36px}
+    .section{padding:48px 0}
+    .feature{padding:24px 20px}
+    .course{padding:24px 20px}
+    .benefit{padding:28px 24px}
+    .reviews__card{padding:28px 20px}
+    .reviews__score{font-size:2.5rem}
+    .ctaband{padding:56px 0}
+    .gallery__featured{max-width: 500px}
+    .gallery__thumbs{gap: 8px}
+    .gallery__thumb{border-radius: 12px}
+    .teacher__inner{border-radius:50%}
+    .teacher__front,.teacher__back{border-radius:50%}
+    .teacher__img{border-radius:50%}
+    .teacher__info h3{font-size:1.1rem}
+    .teacher__subject{font-size:1.1rem}
+    .teacher__bio{font-size:1rem;display:flex}
+    .footer__about{font-size:.88rem}
+    .footer__links a{font-size:.88rem}
+    .footer__contact li{font-size:.88rem}
   }
   @media (max-width:420px){
-    .stats__grid{grid-template-columns:1fr}
-    .hero__floating{max-width:230px;padding:12px 16px}
+    .hero__floating{max-width:400px;padding:12px 16px}
+    .hero__floating .t{font-size:.85rem}
+    .hero__floating .s{font-size:.65rem}
+    .hero__floating .ic{width:32px;height:32px;font-size:1.1rem}
+    .nav__inner{height:64px}
+    .brand__mark{width:72px;height:72px}
+    .brand__name{font-size:1rem}
+    .nav__toggle{width:40px;height:40px;font-size:1.2rem}
+    
+  }
+  @media (max-width:360px){
+    .container{padding-inline:16px}
+    .hero__ctas .btn{padding:12px 20px;font-size:.95rem}
+    .stat__top{font-size:1.5rem}
+    .step__num{width:64px;height:64px;font-size:1.25rem}
+    .benefit__head{gap:10px}
+    .benefit__ic{width:40px;height:40px;font-size:1.2rem}
+    .contact__row{gap:10px;padding:12px 0}
+    .contact__row .ic{width:36px;height:36px;font-size:1.1rem}
   }
 
   /* ===== GALLERY ===== */
-  .gallery__grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
-    gap:24px;
-    margin-bottom:40px;
+  .gallery{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
   }
-  .gallery__item{
-    position:relative;
-    border-radius:20px;
-    overflow:hidden;
-    background:var(--bg-tint);
-    aspect-ratio:4/3;
-    box-shadow:var(--shadow-sm);
-    cursor:zoom-in;
-    transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+  .gallery__featured{
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--bg-tint);
+    box-shadow: var(--shadow-lg);
   }
-  .gallery__item--hero{
-    grid-column:1/-1;
-    aspect-ratio:auto;
-    height:600px;
-    border-radius:24px;
+  .gallery__featured img{
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
   }
-  .gallery__item:hover{
-    transform:translateY(-6px);
-    box-shadow:var(--shadow-lg);
+  .gallery__thumbs{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    max-width: 1140px;
+    margin: 0 auto;
+    width: 100%;
   }
-  .gallery__item img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center;
-    display:block;
-    transition:transform .5s var(--ease);
+  .gallery__thumb{
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--bg-tint);
+    aspect-ratio: 4/3;
+    box-shadow: var(--shadow-sm);
+    cursor: zoom-in;
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease);
   }
-  .gallery__item--hero img{
-    object-fit:contain;
-    background:var(--bg-tint);
+  .gallery__thumb:hover{
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
   }
-  .gallery__item:hover img{
-    transform:scale(1.06);
+  .gallery__thumb img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform .5s var(--ease);
+  }
+  .gallery__thumb:hover img{
+    transform: scale(1.06);
   }
   .gallery__overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(180deg,rgba(27,58,107,.2) 0%,rgba(27,58,107,.5) 100%);
-    opacity:0;
-    display:flex;
-    align-items:flex-end;
-    padding:26px;
-    transition:opacity .3s var(--ease);
-    pointer-events:none;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(27,58,107,.2) 0%, rgba(27,58,107,.5) 100%);
+    opacity: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 18px;
+    transition: opacity .3s var(--ease);
+    pointer-events: none;
   }
-  .gallery__item:hover .gallery__overlay{opacity:1}
+  .gallery__thumb:hover .gallery__overlay{opacity: 1}
+  .gallery__featured:hover .gallery__overlay{opacity: 1}
   .gallery__caption{
-    color:#fff;
-    font-size:.92rem;
-    font-weight:500;
-    text-shadow:0 1px 2px rgba(0,0,0,.5);
+    color: #fff;
+    font-size: .85rem;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0,0,0,.5);
   }
   .gallery__caption::before{
-    content:'\1f4f7';
-    margin-right:6px;
-    opacity:.8;
+    content: '\1f4f7';
+    margin-right: 6px;
+    opacity: .8;
   }
   .gallery__cta{
-    text-align:center;
+    text-align: center;
+    margin-top: 24px;
   }
   .gallery__cta .btn{
-    min-width:200px;
+    min-width: 200px;
+  }
+
+  /* Touch-friendly gallery */
+  @media (hover: none) and (pointer: coarse) {
+    .gallery__thumb:hover{transform: none; box-shadow: var(--shadow-sm)}
+    .gallery__thumb:hover img{transform: none}
+    .gallery__thumb:hover .gallery__overlay{opacity: 0}
+    .gallery__thumb:active{transform: scale(.98)}
+    .gallery__thumb:active img{transform: scale(1.02)}
+    .gallery__overlay{opacity: 1; background: linear-gradient(180deg, transparent 50%, rgba(27,58,107,.7) 100%)}
   }
 
   /* ===== LIGHTBOX ===== */
@@ -654,20 +756,14 @@
   }
 
   @media (max-width:980px){
-    .gallery__grid{
-      gap:20px;
+    .gallery__thumbs{
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
     }
-    .gallery__item{
-      border-radius:18px;
+    .gallery__featured{
+      max-width: 600px;
     }
-  }
-  @media (max-width:768px){
-    .gallery__grid{
-      gap:18px;
-    }
-    .gallery__item--hero{
-      aspect-ratio:21/9;
-    }
+    .gallery__thumb{aspect-ratio: 4/3}
     .lightbox__close,
     .lightbox__prev,
     .lightbox__next{
@@ -675,24 +771,63 @@
       height:48px;
       font-size:1.3rem;
     }
-    .lightbox__close{
-      top:12px;
-      right:12px;
+    .lightbox__close{top:12px;right:12px}
+    .lightbox__prev{left:12px}
+    .lightbox__next{right:12px}
+    .lightbox__counter{font-size:.8rem}
+  }
+  @media (max-width:768px){
+    .gallery__thumbs{
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
     }
-    .lightbox__prev{
-      left:12px;
-    }
-    .lightbox__next{
-      right:12px;
-    }
-    .lightbox__counter{
-      font-size:.8rem;
-    }
+    .gallery__featured{max-width: 100%}
+    .gallery__thumb{aspect-ratio: 4/3}
   }
   @media (max-width:480px){
-    .gallery__grid{
-      gap:14px;
+    .gallery__thumbs{
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
     }
+    .gallery__thumb{border-radius: 12px}
+    .gallery__overlay{padding: 14px}
+    .gallery__caption{font-size: .8rem}
+    .lightbox__close,
+    .lightbox__prev,
+    .lightbox__next{
+      width:40px;height:40px;font-size:1.1rem;
+    }
+    .lightbox__close{top:8px;right:8px}
+    .lightbox__prev{left:6px}
+    .lightbox__next{right:6px}
+  }
+  @media (max-width:420px){
+    .gallery__thumbs{
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .gallery__thumb{aspect-ratio: 4/3}
+    .lightbox__close{top:6px;right:6px}
+  }
+      column-gap: 0;
+    }
+    .gallery__item{
+      border-radius:12px;
+      margin-bottom: 12px;
+    }
+    .gallery__item--hero{
+      height:240px;
+    }
+  }
+      margin-bottom: 8px;
+      break-inside: avoid;
+    }
+    .gallery__item--hero{
+      column-span: all;
+      height: 280px;
+    }
+    .gallery__overlay{padding:18px}
+    .gallery__caption{font-size:.85rem}
     .lightbox__close,
     .lightbox__prev,
     .lightbox__next{
@@ -700,18 +835,18 @@
       height:44px;
       font-size:1.2rem;
     }
-    .lightbox__prev{
-      left:8px;
-    }
-    .lightbox__next{
-      right:8px;
-    }
-    .lightbox__close{
-      top:8px;
-      right:8px;
-    }
+    .lightbox__prev{left:8px}
+    .lightbox__next{right:8px}
+    .lightbox__close{top:8px;right:8px}
   }
-  /* redeploy */
+  @media (max-width:420px){
+    .gallery__thumbs{
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .gallery__thumb{aspect-ratio: 4/3}
+    .lightbox__close{top:6px;right:6px}
+  }
 </style>
 </head>
 <body>
@@ -720,7 +855,7 @@
 <nav class="nav" id="nav" aria-label="Primary navigation">
   <div class="container nav__inner">
     <a href="#home" class="brand" aria-label="Kishalay Coaching Center home">
-      <img src="public/images/logo.png" alt="" class="brand__mark" aria-hidden="true" width="88" height="88" />
+      <img src="public/images/logo.png" alt="Kishalay Coaching Center Logo" class="brand__mark" aria-hidden="true" width="88" height="88" />
     </a>
     <ul class="nav__links" id="navLinks">
       <li><a href="#home">Home</a></li>
@@ -761,7 +896,7 @@
     </div>
     <div class="hero__media">
       <div class="hero__img-wrap">
-        <img src="public/images/image5.jfif" alt="Kishalay Institute classroom learning environment" loading="eager" />
+        <img src="public/images/image5.jfif" alt="Kishalay Institute classroom learning environment" loading="eager" width="800" height="600" />
       </div>
       <div class="hero__floating">
         <span class="ic" aria-hidden="true">&#128218;</span>
@@ -815,7 +950,7 @@
     </div>
     <div class="about__card reveal reveal--delay-1">
       <div class="about__video-wrap">
-        <img src="public/images/image6.jfif" alt="Kishalay Institute learning environment" loading="lazy" />
+        <img src="public/images/image6.jfif" alt="Kishalay Institute learning environment" loading="lazy" width="600" height="400" />
       </div>
       <h3>OUR STUDENTS WILL</h3>
       <div class="motto">Learn &bull; Understand &bull; Grow</div>
@@ -882,7 +1017,7 @@
         <div class="teacher__inner">
           <div class="teacher__front">
             <div class="teacher__img">
-              <img src="public/images/teacher1.jfif" alt="Principal" loading="lazy" />
+              <img src="public/images/teacher1.jfif" alt="Amrita Samanta, Principal" loading="lazy" width="300" height="300" />
             </div>
             <div class="teacher__badge">Amrita</div>
           </div>
@@ -899,7 +1034,7 @@
         <div class="teacher__inner">
           <div class="teacher__front">
             <div class="teacher__img">
-              <img src="public/images/supriyo.jfif" alt="Teacher 1" loading="lazy" />
+              <img src="public/images/supriyo.jfif" alt="Supriyo Karar, Bengali & Geography Teacher" loading="lazy" width="300" height="300" />
             </div>
             <div class="teacher__badge">Supriyo</div>
           </div>
@@ -916,14 +1051,14 @@
         <div class="teacher__inner">
           <div class="teacher__front">
             <div class="teacher__img">
-              <img src="public/images/sakhir2.jfif" alt="Teacher 2" loading="lazy" />
+              <img src="public/images/sakhir2.jfif" alt="Sk Sakhiruddin, Mathematics & English Teacher" loading="lazy" width="300" height="300" />
             </div>
             <div class="teacher__badge">Sakhir</div>
           </div>
           <div class="teacher__back">
             <div class="teacher__info">
               <h3>Sk Sakhiruddin</h3>
-              <p class="teacher__subject">Mathematics, English & Literature</p>
+              <p class="teacher__subject">Mathematics, English</p>
               <p class="teacher__bio">Passionate about language arts and building strong communication skills.</p>
             </div>
           </div>
@@ -933,7 +1068,7 @@
         <div class="teacher__inner">
           <div class="teacher__front">
             <div class="teacher__img">
-              <img src="public/images/arnab.jfif" alt="Teacher 3" loading="lazy" />
+              <img src="public/images/arnab.jfif" alt="Arnab Manna, Science Teacher" loading="lazy" width="300" height="300" />
             </div>
             <div class="teacher__badge">Arnab</div>
           </div>
@@ -950,14 +1085,14 @@
         <div class="teacher__inner">
           <div class="teacher__front">
             <div class="teacher__img">
-              <img src="public/images/poulomi.jfif" alt="Teacher 4" loading="lazy" />
+              <img src="public/images/poulomi.jfif" alt="Poulami Mondol, History Teacher" loading="lazy" width="300" height="300" />
             </div>
             <div class="teacher__badge">Poulomi</div>
           </div>
           <div class="teacher__back">
             <div class="teacher__info">
               <h3>Poulami Mondol</h3>
-              <p class="teacher__subject">History</p>
+              <p class="teacher__subject">History & Geography</p>
               <p class="teacher__bio">Preparing students for the digital future with practical tech skills.</p>
             </div>
           </div>
@@ -1102,8 +1237,14 @@
       <h2 id="galleryH">Our Coaching Center Gallery</h2>
       <p>Glance through our learning spaces, classroom moments, and student activities at Kishalay Coaching Center.</p>
     </div>
-    <div class="gallery__grid" id="galleryGrid" role="list" aria-label="Coaching Center gallery images">
-      <!-- Gallery items will be populated by JavaScript -->
+    <div class="gallery reveal" role="list" aria-label="Coaching Center gallery images">
+      <figure class="gallery__featured" role="listitem" aria-label="Featured gallery image">
+        <img src="" alt="" loading="eager" />
+        <figcaption class="gallery__overlay"><span class="gallery__caption"></span></figcaption>
+      </figure>
+      <div class="gallery__thumbs" id="galleryGrid" role="list" aria-label="Gallery thumbnails">
+        <!-- Thumbnails will be populated by JavaScript -->
+      </div>
     </div>
     <div class="gallery__cta reveal">
       <button type="button" class="btn btn--primary" id="galleryShowMore" aria-label="Show more gallery images in lightbox">
@@ -1194,7 +1335,7 @@
     <div class="footer__grid">
       <div class="footer__about-col">
 <a href="#home" class="brand" aria-label="Kishalay Coaching Center home">
-          <img src="public/images/footer-logo.png" alt="" class="" aria-hidden="true" width="32" height="32" />
+          <img src="public/images/footer-logo.png" alt="Kishalay Coaching Center" class="" aria-hidden="true" width="32" height="32" />
           <span class="brand__text">
             <span class="brand__name">KISHALAY</span>
             <span class="brand__sub">Coaching Center</span>
@@ -1229,17 +1370,10 @@
   </div>
 </footer>
 
-<!-- ===== MOBILE ACTION BAR ===== -->
-<div class="mobilebar" aria-label="Quick actions">
-  <div class="mobilebar__inner">
-    <a href="tel:08597671454" class="mobilebar__call" aria-label="Call now">
-      <span aria-hidden="true">&#9742;</span> Call Now
-    </a>
-    <a href="https://www.google.com/maps/dir/?api=1&destination=BARBAUN+ROAD+Jhikhira+West+Bengal+711401" target="_blank" rel="noopener noreferrer" class="mobilebar__dir" aria-label="Get directions">
-      <span aria-hidden="true">&#128205;</span> Directions
-    </a>
-  </div>
-</div>
+<!-- ===== FLOATING ADMISSION BUTTON ===== -->
+<a href="https://wa.me/918597671454?text=Admission%20Query" class="float-admission" aria-label="Admission Query on WhatsApp" target="_blank" rel="noopener noreferrer">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true"><path d="M12.04 2.01C6.48 2.01 2.01 6.48 2.01 12.04S6.48 22.08 12.04 22.08 22.08 17.61 22.08 12.04 17.61 2.01 12.04 2.01zm0 17.9c-4.89 0-8.87-3.99-8.87-8.88 0-2.36.93-4.52 2.46-6.11l1.26 1.26c1.19-1.1 2.78-1.74 4.57-1.74 4.88 0 8.86 3.98 8.86 8.86 0 1.8-.72 3.4-1.84 4.65l1.24 1.24c1.54-1.61 2.44-3.8 2.44-6.2 0-5.52-4.47-9.99-9.99-10-2.67 0-5.16 1.03-7.06 2.79l-1.11-1.11C2.2 3.86 3.09 2.01 5.16 2.01c1.06 0 2.09.37 2.93 1.03l.03.03C9.84 2.42 11.9 2.01 12.04 2.01c5.52 0 10 4.48 10 10 0 2.59-.99 4.87-2.6 6.61l-.03.03c-.01-.01-.02-.02-.03-.04l-2.12-2.12C16.6 17.42 15.89 18.05 15.14 18.05c-.28 0-.57-.04-.84-.1.19.62.29 1.27.29 1.93 0 2.68-1.28 5.03-3.21 6.55z"/></svg>
+</a>
 
 <!-- ===== LIGHTBOX ===== -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image gallery lightbox" tabindex="-1">
@@ -1307,26 +1441,23 @@
 
   /* ===== Gallery Render ===== */
   var galleryGrid = document.getElementById('galleryGrid');
+  var galleryFeatured = document.querySelector('.gallery__featured');
   var showMoreBtn = document.getElementById('galleryShowMore');
 
-  function getItemClass(type){
-    switch(type){
-      case 'portrait': return 'gallery__item gallery__item--portrait';
-      case 'square': return 'gallery__item gallery__item--square';
-      case 'wide': return 'gallery__item gallery__item--wide';
-      default: return 'gallery__item';
-    }
-  }
-
   function renderGallery(){
-    galleryImages.forEach(function(img, index){
-      var li = document.createElement('li');
-      var classes = getItemClass(img.type);
-      if(index === 0){ classes += ' gallery__item--hero'; }
-      li.className = classes;
+    if(!galleryImages.length) return;
+    var featured = galleryImages[0];
+    galleryFeatured.querySelector('img').src = featured.src;
+    galleryFeatured.querySelector('img').alt = featured.alt;
+    galleryFeatured.querySelector('img').setAttribute('data-index', '0');
+    galleryFeatured.querySelector('.gallery__caption').textContent = featured.alt;
+    galleryFeatured.setAttribute('data-index', '0');
+
+    galleryImages.slice(1).forEach(function(img, index){
+      var li = document.createElement('div');
+      li.className = 'gallery__thumb reveal';
       li.setAttribute('role', 'listitem');
-      li.setAttribute('data-index', index);
-      li.classList.add('reveal');
+      li.setAttribute('data-index', index + 1);
       var delay = (index % 3) + 1;
       li.classList.add('reveal--delay-' + delay);
       li.innerHTML = '<img src="' + img.src + '" alt="' + img.alt + '" loading="lazy" decoding="async">' +
@@ -1377,8 +1508,9 @@
   }
 
   /* ===== Event Listeners ===== */
-  galleryGrid.addEventListener('click', function(e){
-    var item = e.target.closest('.gallery__item');
+  var galleryContainer = document.querySelector('.gallery');
+  galleryContainer.addEventListener('click', function(e){
+    var item = e.target.closest('.gallery__featured, .gallery__thumb');
     if(item){
       var index = parseInt(item.getAttribute('data-index'), 10);
       openLightbox(index);
@@ -1507,6 +1639,27 @@
   }
   window.addEventListener('scroll', setActive, {passive:true});
   setActive();
+
+  /* ===== Teacher cards tap-to-flip (mobile) ===== */
+  var teacherCards = document.querySelectorAll('.teacher');
+  var isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+
+  teacherCards.forEach(function(card){
+    var toggleFlip = function(e){
+      if(!isTouchDevice) return;
+      teacherCards.forEach(function(c){
+        if(c !== card) c.classList.remove('flipped');
+      });
+      card.classList.toggle('flipped');
+    };
+    card.addEventListener('click', toggleFlip);
+    card.addEventListener('touchend', function(e){
+      if(isTouchDevice){
+        e.preventDefault();
+        toggleFlip(e);
+      }
+    }, {passive: false});
+  });
 
 }());
 </script>
