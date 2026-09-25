@@ -1653,12 +1653,6 @@
       card.classList.toggle('flipped');
     };
     card.addEventListener('click', toggleFlip);
-    card.addEventListener('touchend', function(e){
-      if(isTouchDevice){
-        e.preventDefault();
-        toggleFlip(e);
-      }
-    }, {passive: false});
   });
 
 }());
